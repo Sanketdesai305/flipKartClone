@@ -29,17 +29,6 @@ const cartSlice = createSlice({
             state.products=[];
             state.total = 0;
         },
-        IncrementCount:(state,action)=>{
-            const newItem = action.payload;
-            const existingItem = state.products.find(
-                (item) => item.id === newItem.id
-              );
-        
-              if (existingItem) {
-                existingItem.quantity++;
-                existingItem.totalPrice += newItem.price;
-              }
-        },
     },
 });
 
