@@ -20,8 +20,8 @@ const categories = () => {
     <Component>
        {
                 data.map(temp => (
-                  <Link to={`/products/${temp.text}`}>
-                    <Box>
+                  <Link to={`/products/${temp.text}`} key = {temp.url}>
+                    <Box key = {temp.url}>
                         <img src={temp.url} style={{  width: 64 }} />
                         <Text>{temp.text}</Text>
                     </Box>
