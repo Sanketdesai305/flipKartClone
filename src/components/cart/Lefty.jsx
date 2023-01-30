@@ -63,17 +63,13 @@ const Boxy = styled(Box)`
 export const Lefty = () => {
     const cart = useSelector(state=>state.cart)
     const dispatch = useDispatch();
-    const clearfunc=()=>{
-        dispatch(clearProduct({...cart.product})
-        );
-    };
 
     //assured logo from the internet
     const fassured = 'https://static-assets-web.flixcart.com/www/linchpin/fk-cp-zion/img/fa_62673a.png';
   return (
     //looping through every product in the cart to display them
     <Wrapper>   
-   {cart.products.map(product=>( <Component>
+   {cart.products.map(product=>( <Component key ={product.id}>
         <Left>
             <img src={product.image} style={{ height: 110, width: 110 }}alt='product'/>
             <GroupedButton />
@@ -91,7 +87,7 @@ export const Lefty = () => {
                     <Discount component="span">50% off</Discount>
                 </Typography>
                 
-                <Remove onClick={clearfunc}>Remove</Remove>
+                <Remove onClick={() => dispatch(clearProduct(product.id))}>Remove</Remove>
         </Boxy>
     </Component>))}
     <BottomWrapper>
